@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <form action="wyślij.php" method="post">
+    <input type="text" name="imie">
+    <input type="text" name="nazwisko">
+    <input type="submit" name="Tu klikać chłopie">
+
+
+ </form>
+
+ <div id="wynik"></div>
+
+      <script>
+        const formularz =  document.querySelector("form")
+        
+         formularz.addEventListener("submit",function(e){
+            e.preventDefault();
+            let wynik = document.getElementById("wynik");
+            let data = new FormData(e.target);
+            wynik.innerHTML = `
+            <p>Formularz wysłany z wartościami : </p><br/>
+            `
+            data.forEach((item)=>{
+            wynik.innerHTML += `${item}<br/>`
+            });
+            setTimeout(()=>{this.submit();
+
+            },3000)
+            
+            
+
+             
+        });
+    </script>
+</body>
+</html>
